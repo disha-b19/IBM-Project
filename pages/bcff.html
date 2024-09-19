@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <style>
+        body, h3, label, input, button, p {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic body styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Tool styles */
+        .tool {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .tool label, .tool input, .tool button {
+            display: block;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        .tool button:hover {
+            background-color: #45a049;
+        }
+
+        .tool button:focus {
+            outline: 2px solid #2e8b57;
+        }
+
+        #footprint-result {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        /* Responsive design */
+        @media (max-width: 400px) {
+            .tool {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimateVerse</title>
+    <link rel="icon" href="/res/cv.png" type="image/x-icon">
+    <link rel="stylesheet" href="/pages/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .navbar {
+            background-color: #333;
+            padding: 10px 20px;
+            color: #fff;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #fff;
+        }
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .nav-item {
+            margin: 0 15px;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+        .cta-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .btn {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        .primary-btn {
+            background-color: #4CAF50;
+        }
+        .primary-btn:hover {
+            background-color: #45a049;
+        }
+        .secondary-btn {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .secondary-btn:hover {
+            background-color: #ddd;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 3px 0;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #333;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-item {
+                margin: 10px 0;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo"><a href="/pages/index.html"><h1>ClimateVerse</h1></a></div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/pages/about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/pages/tool.html" class="nav-link">Tools</a></li>
+                <li class="nav-item"><a href="/pages/news.html" class="nav-link">News</a></li>
+                <li class="nav-item"><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="cta-buttons">
+                <a href="/index.html" class="btn primary-btn">Action</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+</div>
+    <div class="tool" id="carbon-footprint-calculator">
+        <h3>Carbon Footprint Calculator</h3>
+        <label for="miles">Miles driven per week:</label>
+        <input type="number" id="miles" name="miles" placeholder="Enter miles" min="0">
+        <button onclick="calculateFootprint()">Calculate</button>
+        <p id="footprint-result"></p>
+    </div>
+    <script>
+        function calculateFootprint() {
+            const miles = parseFloat(document.getElementById('miles').value);
+            if (!isNaN(miles) && miles >= 0) {
+                const footprint = miles * 0.411; // Example calculation
+                document.getElementById('footprint-result').textContent = `Your weekly carbon footprint from driving is approximately ${footprint.toFixed(2)} kg CO2.`;
+            } else {
+                document.getElementById('footprint-result').textContent = 'Please enter a valid number of miles.';
+            }
+        }
+    </script>
+</body>
+</html>
